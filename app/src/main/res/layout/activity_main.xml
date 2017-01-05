@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:fitsSystemWindows="true"
         tools:context="edu.gatech.gtorg.gitmad.threads.activity.MainActivity"
@@ -9,23 +8,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <FrameLayout
+    <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:elevation="20dp"
-        android:padding="10dp">
-
-        <TextView
-            android:text="Choose a Thread"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView"
-            android:textAppearance="@android:style/TextAppearance.Material.Headline"
-            android:layout_marginLeft="20dp"
-            android:textColor="?attr/actionMenuTextColor" />
-
-    </FrameLayout>
+        android:background="?attr/colorPrimary"
+        android:theme="?attr/actionBarTheme"
+        android:minHeight="?attr/actionBarSize"
+        android:id="@+id/toolbar" />
 
     <fragment
         android:layout_width="match_parent"

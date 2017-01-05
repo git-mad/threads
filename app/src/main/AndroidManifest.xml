@@ -22,7 +22,7 @@
             android:name=".activity.ThreadDetailsActivity"
             android:label="@string/title_activity_thread_details"
             android:parentActivityName=".activity.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="edu.gatech.gtorg.gitmad.threads.activity.MainActivity" />

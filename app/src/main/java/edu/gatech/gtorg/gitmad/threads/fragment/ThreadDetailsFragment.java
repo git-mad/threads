@@ -15,6 +15,7 @@ public class ThreadDetailsFragment extends Fragment {
 
     private static final String KEY_THREAD_NAME = "thread name instance state key";
     private static final String KEY_THREAD_DETAILS = "thread details instance state key";
+    private static final String EMPTY_STRING = "";
 
     private String threadName;
     private String threadDetails;
@@ -33,7 +34,18 @@ public class ThreadDetailsFragment extends Fragment {
         if (savedInstanceState != null) {
             threadName = savedInstanceState.getString(KEY_THREAD_NAME);
             threadDetails = savedInstanceState.getString(KEY_THREAD_DETAILS);
+
+        } else {
+            threadName = getString(R.string.choose_a_thread);
+            threadDetails = EMPTY_STRING;
         }
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        setThreadUI();
     }
 
     @Override

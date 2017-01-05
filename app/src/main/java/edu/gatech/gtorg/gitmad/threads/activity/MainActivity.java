@@ -1,5 +1,6 @@
 package edu.gatech.gtorg.gitmad.threads.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -31,11 +32,22 @@ public class MainActivity extends AppCompatActivity implements ThreadsListFragme
 
         setContentView(R.layout.activity_main);
 
+        initializeToolbar();
+
         if (isScreenLandscape()) {
             threadDetailsFragment = (ThreadDetailsFragment) getSupportFragmentManager().findFragmentById(R.id.threadDetailsFragment);
         }
 
         loadThreadDetailsStrings();
+    }
+
+    private void initializeToolbar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        if (!isScreenLandscape()) {
+            setTitle(getString(R.string.choose_a_thread));
+        }
     }
 
     private void loadThreadDetailsStrings() {
@@ -50,8 +62,17 @@ public class MainActivity extends AppCompatActivity implements ThreadsListFragme
             threadDetailsFragment.setThread(threadName, threadDetailsStrings[threadIndex]);
 
         } else {
-
+            startThreadDetailsActivity(threadName, threadDetailsStrings[threadIndex]);
         }
+    }
+
+    private void startThreadDetailsActivity(String threadName, String threadDescription) {
+        Intent threadDetailsActivityIntent = new Intent(this, ThreadDetailsActivity.class);
+
+        threadDetailsActivityIntent.putExtra(ThreadDetailsActivity.KEY_THREAD_NAME, threadName);
+        threadDetailsActivityIntent.putExtra(ThreadDetailsActivity.KEY_THREAD_DESCRIPTION, threadDescription);
+
+        startActivity(threadDetailsActivityIntent);
     }
 
     private boolean isScreenLandscape() {
