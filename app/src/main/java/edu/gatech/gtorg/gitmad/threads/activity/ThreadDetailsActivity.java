@@ -30,6 +30,13 @@ public class ThreadDetailsActivity extends AppCompatActivity {
     }
 
     private void setFragmentParams() {
+        /*
+         * We need to set the correct name and description for the thread that was selected.
+         * 1. Get the Intent that brought us to this activity
+         * 2. Get the extra data that the intent is carrying
+         * 3. Get the string value for the thread name using the extra's key
+         * 4. Repeat the 1-3 for the thread description
+         */
         String threadName = getIntent().getExtras().getString(KEY_THREAD_NAME);
         String threadDescription = getIntent().getExtras().getString(KEY_THREAD_DESCRIPTION);
 

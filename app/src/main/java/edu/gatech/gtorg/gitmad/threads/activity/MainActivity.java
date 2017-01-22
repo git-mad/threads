@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -34,7 +35,24 @@ public class MainActivity extends AppCompatActivity implements ThreadsListFragme
 
         initializeToolbar();
 
+        /* FIX ME
+             * When the screen is landscape, we want to adjust the UI so we can see the list of
+             * threads AND a description at the same time.Before you continue, implement
+             * isScreenLandscape() at the bottom of this file and come back here.
+             *
+             * Now that you can detect screen rotations, let's do something with that. If the screen
+             * is in landscape mode:
+             *
+             * 1. Get the support fragment manager
+             * 2. Use that fragment manager to find a specific fragment by its ID. The ID we want to
+             *    load is threadDetailsFragment
+             * 3. The fragment we just found is a specific type of fragment, so cast it as
+             *    (ThreadDetailsFragment) and save it into the threadDetailsFragment variable.
+             */
+
+        //threadDetailsFragment = ???
         if (isScreenLandscape()) {
+
             threadDetailsFragment = (ThreadDetailsFragment) getSupportFragmentManager().findFragmentById(R.id.threadDetailsFragment);
         }
 
@@ -59,6 +77,7 @@ public class MainActivity extends AppCompatActivity implements ThreadsListFragme
         Toast.makeText(this, threadName + " was clicked", Toast.LENGTH_SHORT).show();
 
         if (isScreenLandscape()) {
+
             threadDetailsFragment.setThread(threadName, threadDetailsStrings[threadIndex]);
 
         } else {
@@ -67,15 +86,29 @@ public class MainActivity extends AppCompatActivity implements ThreadsListFragme
     }
 
     private void startThreadDetailsActivity(String threadName, String threadDescription) {
+        /* FIX ME
+         * Create an Intent that will take you from this activity to ThreadDetailsActivity.
+         */
         Intent threadDetailsActivityIntent = new Intent(this, ThreadDetailsActivity.class);
 
+        /* FIX ME
+         * When you go to ThreadDetailsActivity, you'll want to take the thread name and description
+         * with you. Since Intents can carry data between activities, "put extra" (hint, hint) data
+         * into the Intent for the thread name and then do the same for the description.
+         */
         threadDetailsActivityIntent.putExtra(ThreadDetailsActivity.KEY_THREAD_NAME, threadName);
         threadDetailsActivityIntent.putExtra(ThreadDetailsActivity.KEY_THREAD_DESCRIPTION, threadDescription);
 
+        /* FIX ME
+         * All that is left to do now is to start the activity based on your newly created intent
+         */
         startActivity(threadDetailsActivityIntent);
     }
 
     private boolean isScreenLandscape() {
+        /* FIX ME
+         * Return true if the phone is in landscape mode
+         */
         return getResources().getConfiguration().orientation == ORIENTATION_LANDSCAPE;
     }
 }
