@@ -27,6 +27,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="edu.gatech.gtorg.gitmad.threads.activity.MainActivity" />
         </activity>
+        <activity android:name=".activity.LinearLayoutLogin" />
+        <activity android:name=".activity.ConstraintLayoutLogin"></activity>
     </application>
 
 </manifest>

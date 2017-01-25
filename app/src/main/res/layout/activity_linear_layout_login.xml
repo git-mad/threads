@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_linear_layout_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="edu.gatech.gtorg.gitmad.threads.activity.LinearLayoutLogin"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/edit_txt_lin_user_name"
+        android:hint="User Name" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/edit_txt_lin_password"
+        android:hint="Password" />
+
+    <Button
+        android:text="Sign In"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lin_sign_in_btn" />
+
+</LinearLayout>
