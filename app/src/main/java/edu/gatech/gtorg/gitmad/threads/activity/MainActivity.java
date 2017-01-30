@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity implements ThreadsListFragme
 
     private static final String TAG_THREADS_LIST_FRAGMENT = "threads list fragment in main activity tag";
 
-
     private String[] threadDetailsStrings;
 
     private ThreadDetailsFragment threadDetailsFragment;
@@ -32,6 +31,16 @@ public class MainActivity extends AppCompatActivity implements ThreadsListFragme
 
         setContentView(R.layout.activity_main);
 
+
+        //Code to start the Linear Layout Login
+        if(!LinearLayoutLogin.isLoggedIn()){
+            LinearLayoutLogin.startLinearLayoutActivity(this);
+        }
+
+        //Code to start the Constraint Layout Login
+//        if(!ConstraintLayoutLogin.isLoggedIn()){
+//            ConstraintLayoutLogin.startActivity(this);
+//        }
         initializeToolbar();
 
         if (isScreenLandscape()) {

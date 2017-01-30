@@ -9,10 +9,10 @@
 
 
     <TextView
-        android:text="TextView"
+        android:text="@string/layout_login_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView4"
+        android:id="@+id/txt_view_lin_username"
         />
 
     <EditText
@@ -21,13 +21,13 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/edit_txt_lin_user_name"
-        android:hint="User Name" />
+        android:hint="@string/layout_login_username" />
 
     <TextView
-        android:text="TextView"
+        android:text="@string/layout_login_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView5" />
+        android:id="@+id/txt_view_lin_password" />
 
     <EditText
         android:layout_width="match_parent"
@@ -35,12 +35,12 @@
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/edit_txt_lin_password"
-        android:hint="Password" />
+        android:hint="@string/layout_login_password" />
 
     <Button
-        android:text="Sign In"
+        android:text="@string/layout_button_signin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/lin_sign_in_btn" />
+        android:id="@+id/btn_lin_sign_in" />
 
 </LinearLayout>
