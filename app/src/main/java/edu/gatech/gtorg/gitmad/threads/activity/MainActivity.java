@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -74,7 +75,17 @@ public class MainActivity extends AppCompatActivity implements ThreadsListFragme
 
     @Override
     public void threadClicked(String threadName, int threadIndex) {
+        /* FIX ME
+         * Create a toast that displays which thread was clicked.
+         * The message should be something like "<threadName> was clicked!"
+         * Don't forget to use show() to actually display the toast.
+         */
         Toast.makeText(this, threadName + " was clicked", Toast.LENGTH_SHORT).show();
+
+        /* FIX ME
+         * Log the thread name to the Android Monitor. Hint: Log.i() might be helpful
+         */
+        Log.i("threadName", threadName);
 
         if (isScreenLandscape()) {
 
