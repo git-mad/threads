@@ -47,7 +47,7 @@ public class ConstraintLayoutLogin extends AppCompatActivity {
     }
 
     //Static Factory method to start this activity by another activity
-    public static void startActivity(Context context) {
+    public static void startConstraintActivity(Context context) {
         Intent starter = new Intent(context, ConstraintLayoutLogin.class);
         context.startActivity(starter);
     }

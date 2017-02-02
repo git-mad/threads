@@ -31,16 +31,16 @@ public class MainActivity extends AppCompatActivity implements ThreadsListFragme
 
         setContentView(R.layout.activity_main);
 
-
-        //Code to start the Linear Layout Login
-        if(!LinearLayoutLogin.isLoggedIn()){
-            LinearLayoutLogin.startLinearLayoutActivity(this);
-        }
+//
+//        //Code to start the Linear Layout Login
+//        if(!LinearLayoutLogin.isLoggedIn()){
+//            LinearLayoutLogin.startLinearLayoutActivity(this);
+//        }
 
         //Code to start the Constraint Layout Login
-//        if(!ConstraintLayoutLogin.isLoggedIn()){
-//            ConstraintLayoutLogin.startActivity(this);
-//        }
+        if(!ConstraintLayoutLogin.isLoggedIn()){
+            ConstraintLayoutLogin.startConstraintActivity(this);
+        }
         initializeToolbar();
 
         if (isScreenLandscape()) {

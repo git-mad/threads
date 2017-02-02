@@ -12,6 +12,18 @@
         <item>Theory</item>
     </string-array>
 
+
+    <string-array name="thread_ratings">
+        <item>Rating: 4</item>
+        <item>Rating: 3</item>
+        <item>Rating: 5</item>
+        <item>Rating: 2</item>
+        <item>Rating: 2</item>
+        <item>Rating: 1</item>
+        <item>Rating: 4</item>
+        <item>Rating: 3</item>
+    </string-array>
+
     <string-array name="thread_descriptions">
         <item>The Devices thread is concerned with embedded computational artifacts that interact with people or the physical world. In this thread one learns how to create and evaluate devices that operate under physical constraints such as size, power and bandwidth. Examples include cell phones, robots, jet engines, and intelligent appliances.
             \n\n

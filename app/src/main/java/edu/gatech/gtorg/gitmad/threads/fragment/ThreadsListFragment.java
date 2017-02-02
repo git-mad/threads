@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import edu.gatech.gtorg.gitmad.threads.R;
+import edu.gatech.gtorg.gitmad.threads.adapter.ThreadAdapter;
 
 public class ThreadsListFragment extends Fragment {
 
@@ -20,8 +21,7 @@ public class ThreadsListFragment extends Fragment {
 
     private OnThreadClickedListener clickListener;
     private String[] threadNames;
-
-
+    private String[] threadRatings;
 
 
 
@@ -50,6 +50,7 @@ public class ThreadsListFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         threadNames = getActivity().getResources().getStringArray(R.array.thread_names);
+        threadRatings = getActivity().getResources().getStringArray(R.array.thread_ratings);
     }
 
     @Nullable
@@ -67,7 +68,8 @@ public class ThreadsListFragment extends Fragment {
     }
 
     private void addListAdapter(ListView listView) {
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, threadNames);
+        ThreadAdapter adapter = new ThreadAdapter(getActivity(), threadNames, threadRatings);
+//        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, threadNames);
         listView.setAdapter(adapter);
     }
 
