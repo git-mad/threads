@@ -37,11 +37,13 @@ public class MainActivity extends AppCompatActivity implements ThreadsListFragme
 //            LinearLayoutLogin.startLinearLayoutActivity(this);
 //        }
 
-
+//        TODO:(12) Comment out the LinearLayoutCode and Uncomment this block of code
 //        //Code to start the Constraint Layout Login
 //        if(!ConstraintLayoutLogin.isLoggedIn()){
 //            ConstraintLayoutLogin.startConstraintActivity(this);
 //        }
+
+        
         initializeToolbar();
 
         if (isScreenLandscape()) {
