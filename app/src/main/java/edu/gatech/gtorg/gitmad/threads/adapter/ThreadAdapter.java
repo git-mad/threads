@@ -39,11 +39,12 @@ public class ThreadAdapter extends ArrayAdapter<String> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.listview_layout, parent, false);
         }
         // Lookup view for data population
-        TextView threadRating = (TextView) convertView.findViewById(R.id.textView_listView_thread_rating);
-        TextView threadName = (TextView) convertView.findViewById(R.id.textView_listView_thread_name);
-        // Populate the data into the template view using the data object
-        threadRating.setText(rating);
-        threadName.setText(thread);
+//        TODO:(14) Add the Id's of both of your textViews to show the information
+//        TextView threadRating = (TextView) convertView.findViewById();
+//        TextView threadName = (TextView) convertView.findViewById();
+//        // Populate the data into the template view using the data object
+//        threadRating.setText(rating);
+//        threadName.setText(thread);
         // Return the completed view to render on screen
         return convertView;
     }

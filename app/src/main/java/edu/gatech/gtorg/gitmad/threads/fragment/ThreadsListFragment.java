@@ -68,8 +68,9 @@ public class ThreadsListFragment extends Fragment {
     }
 
     private void addListAdapter(ListView listView) {
-        ThreadAdapter adapter = new ThreadAdapter(getActivity(), threadNames, threadRatings);
-//        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, threadNames);
+//        TODO:(15) Uncomment the line below this and comment out the ArrayAdapter line
+//        ThreadAdapter adapter = new ThreadAdapter(getActivity(), threadNames, threadRatings);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, threadNames);
         listView.setAdapter(adapter);
     }
 

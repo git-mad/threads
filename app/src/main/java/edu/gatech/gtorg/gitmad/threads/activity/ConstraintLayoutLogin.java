@@ -19,7 +19,7 @@ public class ConstraintLayoutLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_constraint_layout_login);
         //TODO:(11) Add the reference for button in constraint layout same as before
-        signIn = ((Button) findViewById("**Reference to your button id**"));
+//        signIn = ((Button) findViewById("**Reference to your button id**"));
 
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override

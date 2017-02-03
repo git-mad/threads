@@ -20,7 +20,7 @@ public class LinearLayoutLogin extends AppCompatActivity {
         setContentView(R.layout.activity_linear_layout_login);
 //        TODO:(8) Use your button id to get the button
 //        To get Reference, R.id.***Your Button Id****
-        signInBtn = ((Button) findViewById("**Reference to your button id"));
+//        signInBtn = ((Button) findViewById("**Reference to your button id"));
 
         //On click listener, which is a method that activates on button click
         signInBtn.setOnClickListener(new View.OnClickListener() {

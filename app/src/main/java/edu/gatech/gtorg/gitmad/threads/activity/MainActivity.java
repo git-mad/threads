@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements ThreadsListFragme
 //            ConstraintLayoutLogin.startConstraintActivity(this);
 //        }
 
-        
+
         initializeToolbar();
 
         if (isScreenLandscape()) {
