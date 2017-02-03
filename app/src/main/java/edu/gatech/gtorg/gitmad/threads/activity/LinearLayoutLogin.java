@@ -12,14 +12,17 @@ import edu.gatech.gtorg.gitmad.threads.R;
 public class LinearLayoutLogin extends AppCompatActivity {
 
     private static boolean loggedIn = false;
-    Button signInBtn;
+    private Button signInBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_linear_layout_login);
-        signInBtn = ((Button) findViewById(R.id.btn_lin_sign_in));
+//        TODO:(8) Use your button id to get the button
+//        To get Reference, R.id.***Your Button Id****
+        signInBtn = ((Button) findViewById("**Reference to your button id"));
 
+        //On click listener, which is a method that activates on button click
         signInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -7,40 +7,27 @@
     tools:context="edu.gatech.gtorg.gitmad.threads.activity.LinearLayoutLogin"
     android:orientation="vertical">
 
+    <!--TODO:(1) Implement your linear Layout for Sign in-->
+    <!--Can do it in XML or using the Design Tab-->
+    <!--TODO:(2) Add One TextView for user name -->
+    <!--TODO:(3) Give it an Id, and set a text for it in strings-->
 
-    <TextView
-        android:text="@string/layout_login_username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/txt_view_lin_username"
-        />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/edit_txt_lin_user_name"
-        android:hint="@string/layout_login_username" />
 
-    <TextView
-        android:text="@string/layout_login_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/txt_view_lin_password" />
+    <!--TODO:(4) Create an EditText for the person to input their User Name-->
+    <!--TODO:(5) Give an Id and hint-->
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/edit_txt_lin_password"
-        android:hint="@string/layout_login_password" />
 
-    <Button
-        android:text="@string/layout_button_signin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_lin_sign_in" />
+
+
+    <!--TODO:(6) Create another set of TextView and EditText for Password-->
+
+
+
+
+
+    <!--TODO:(7) Create Button. Give an Id, and set Text to "Sign In"-->
+
+
 
 </LinearLayout>
