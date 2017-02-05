@@ -18,19 +18,17 @@ public class ThreadInfo {
         // Defensive copy
         // We don't let return a single List because anyone could edit our list of threads
         // Another approach would be to return a Collections.unmodifiableList()
-        guardNull(orderedThreadNames, "ThreadInfo.loadThreadInformation must be called before accessing thread names");
+        if (orderedThreadNames == null) {
+            throw new IllegalStateException("ThreadInfo.loadThreadInformation must be called before accessing thread names");
+        }
         return Arrays.asList(orderedThreadNames);
     }
 
     public static List<String> getThreadDetails() {
-        guardNull(orderedThreadNames, "ThreadInfo.loadThreadInformation must be called before accessing thread details");
-        return Arrays.asList(threadDetails);
-    }
-
-    private static void guardNull(@Nullable Object object, @NonNull String errorMessage) {
-        if (object == null) {
-            throw new IllegalStateException(errorMessage);
+        if (threadDetails == null) {
+            throw new IllegalStateException("ThreadInfo.loadThreadInformation must be called before accessing thread details");
         }
+        return Arrays.asList(threadDetails);
     }
 
     public interface OnThreadLoadListener {
