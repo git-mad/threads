@@ -2,27 +2,25 @@ package edu.gatech.gtorg.gitmad.threads.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.widget.Toast;
 
+import java.util.List;
+
 import edu.gatech.gtorg.gitmad.threads.R;
+import edu.gatech.gtorg.gitmad.threads.ThreadInfo;
 import edu.gatech.gtorg.gitmad.threads.fragment.ThreadDetailsFragment;
 import edu.gatech.gtorg.gitmad.threads.fragment.ThreadsListFragment;
 
 import static android.content.res.Configuration.ORIENTATION_LANDSCAPE;
-import static android.content.res.Configuration.ORIENTATION_PORTRAIT;
 
 public class MainActivity extends AppCompatActivity implements ThreadsListFragment.OnThreadClickedListener {
 
     private static final String TAG_THREADS_LIST_FRAGMENT = "threads list fragment in main activity tag";
 
 
-    private String[] threadDetailsStrings;
+    private List<String> threadDetailsStrings;
 
     private ThreadDetailsFragment threadDetailsFragment;
 
@@ -51,18 +49,24 @@ public class MainActivity extends AppCompatActivity implements ThreadsListFragme
     }
 
     private void loadThreadDetailsStrings() {
-        threadDetailsStrings = getResources().getStringArray(R.array.thread_descriptions);
+        ThreadInfo.loadThreadInformation(this, new ThreadInfo.OnThreadLoadListener() {
+            @Override
+            public void onThreadInfoLoaded() {
+                threadDetailsStrings = ThreadInfo.getThreadDetails();
+            }
+        });
     }
 
     @Override
     public void threadClicked(String threadName, int threadIndex) {
         Toast.makeText(this, threadName + " was clicked", Toast.LENGTH_SHORT).show();
 
+        String threadDetails = threadDetailsStrings.get(threadIndex);
         if (isScreenLandscape()) {
-            threadDetailsFragment.setThread(threadName, threadDetailsStrings[threadIndex]);
+            threadDetailsFragment.setThread(threadName, threadDetails);
 
         } else {
-            startThreadDetailsActivity(threadName, threadDetailsStrings[threadIndex]);
+            startThreadDetailsActivity(threadName, threadDetails);
         }
     }
 

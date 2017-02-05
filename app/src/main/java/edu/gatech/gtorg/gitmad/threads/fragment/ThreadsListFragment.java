@@ -11,7 +11,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.util.List;
+
 import edu.gatech.gtorg.gitmad.threads.R;
+import edu.gatech.gtorg.gitmad.threads.ThreadInfo;
 
 public class ThreadsListFragment extends Fragment {
 
@@ -19,7 +22,7 @@ public class ThreadsListFragment extends Fragment {
 
 
     private OnThreadClickedListener clickListener;
-    private String[] threadNames;
+    private List<String> threadNames;
 
 
 
@@ -49,7 +52,7 @@ public class ThreadsListFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        threadNames = getActivity().getResources().getStringArray(R.array.thread_names);
+        threadNames = ThreadInfo.getThreadNames();
     }
 
     @Nullable
@@ -75,12 +78,12 @@ public class ThreadsListFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                clickListener.threadClicked(threadNames[position], position);
+                clickListener.threadClicked(threadNames.get(position), position);
             }
         });
     }
 
     public interface OnThreadClickedListener {
-        public void threadClicked(String threadName, int threadIndex);
+        void threadClicked(String threadName, int threadIndex);
     }
 }
