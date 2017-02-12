@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements ThreadsListFragme
 
         initializeToolbar();
 
-        /* FIX ME
+        /* TODO 9
              * When the screen is landscape, we want to adjust the UI so we can see the list of
              * threads AND a description at the same time.Before you continue, implement
              * isScreenLandscape() at the bottom of this file and come back here.
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements ThreadsListFragme
              *    (ThreadDetailsFragment) and save it into the threadDetailsFragment variable.
              */
 
-        //threadDetailsFragment = ???
+
         if (isScreenLandscape()) {
 
             threadDetailsFragment = (ThreadDetailsFragment) getSupportFragmentManager().findFragmentById(R.id.threadDetailsFragment);
@@ -75,14 +75,16 @@ public class MainActivity extends AppCompatActivity implements ThreadsListFragme
 
     @Override
     public void threadClicked(String threadName, int threadIndex) {
-        /* FIX ME
+        /* TODO 6
          * Create a toast that displays which thread was clicked.
          * The message should be something like "<threadName> was clicked!"
          * Don't forget to use show() to actually display the toast.
          */
+
         Toast.makeText(this, threadName + " was clicked", Toast.LENGTH_SHORT).show();
 
-        /* FIX ME
+
+        /* TODO 7
          * Log the thread name to the Android Monitor. Hint: Log.i() might be helpful
          */
         Log.i("threadName", threadName);
@@ -97,27 +99,29 @@ public class MainActivity extends AppCompatActivity implements ThreadsListFragme
     }
 
     private void startThreadDetailsActivity(String threadName, String threadDescription) {
-        /* FIX ME
+        /* TODO 1
          * Create an Intent that will take you from this activity to ThreadDetailsActivity.
          */
-        Intent threadDetailsActivityIntent = new Intent(this, ThreadDetailsActivity.class);
+        Intent intent = new Intent(MainActivity.this, ThreadDetailsActivity.class);
 
-        /* FIX ME
+        /* TODO 2
          * When you go to ThreadDetailsActivity, you'll want to take the thread name and description
          * with you. Since Intents can carry data between activities, "put extra" (hint, hint) data
          * into the Intent for the thread name and then do the same for the description.
+         *
+         * ThreadDetailsActivity has public keys you may use to pass your data or you can use your own string
          */
-        threadDetailsActivityIntent.putExtra(ThreadDetailsActivity.KEY_THREAD_NAME, threadName);
-        threadDetailsActivityIntent.putExtra(ThreadDetailsActivity.KEY_THREAD_DESCRIPTION, threadDescription);
+        intent.putExtra(ThreadDetailsActivity.KEY_THREAD_NAME, threadName);
+        intent.putExtra(ThreadDetailsActivity.KEY_THREAD_DESCRIPTION, threadDescription);
 
-        /* FIX ME
+        /* TODO 3
          * All that is left to do now is to start the activity based on your newly created intent
          */
-        startActivity(threadDetailsActivityIntent);
+        startActivity(intent);
     }
 
     private boolean isScreenLandscape() {
-        /* FIX ME
+        /* TODO 8
          * Return true if the phone is in landscape mode
          */
         return getResources().getConfiguration().orientation == ORIENTATION_LANDSCAPE;

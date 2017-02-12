@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Toast;
 
 import edu.gatech.gtorg.gitmad.threads.R;
 import edu.gatech.gtorg.gitmad.threads.fragment.ThreadDetailsFragment;
@@ -30,13 +31,15 @@ public class ThreadDetailsActivity extends AppCompatActivity {
     }
 
     private void setFragmentParams() {
-        /*
+        /* TODO 4
          * We need to set the correct name and description for the thread that was selected.
          * 1. Get the Intent that brought us to this activity
          * 2. Get the extra data that the intent is carrying
          * 3. Get the string value for the thread name using the extra's key
          * 4. Repeat the 1-3 for the thread description
          */
+
+
         String threadName = getIntent().getExtras().getString(KEY_THREAD_NAME);
         String threadDescription = getIntent().getExtras().getString(KEY_THREAD_DESCRIPTION);
 
@@ -46,3 +49,4 @@ public class ThreadDetailsActivity extends AppCompatActivity {
     }
 
 }
+

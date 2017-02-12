@@ -72,12 +72,27 @@ public class ThreadsListFragment extends Fragment {
     }
 
     private void addListClickListener(ListView listView) {
+        /* TODO 5
+         *
+         * Set an OnItemClickListener for listView so it can take you to the appropriate thread
+         * description.
+         *
+         * Hint: You need to give the listView listener a new AdapterView.OnItemClickListener and override
+         * the AdapterView.OnItemClickListener's onItemClick(...) method.
+         *
+         * https://developer.android.com/reference/android/widget/AdapterView.OnItemClickListener.html
+         *
+         * Inside the onItemClick(), call clickListener's threadClicked() method (defined in the interface below)
+         * We need a threadName and threadIndex. If only there were a String[] in this file with all the threads and
+         * a variable that corresponded to the position in the array...
+         */
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 clickListener.threadClicked(threadNames[position], position);
             }
         });
+
     }
 
     public interface OnThreadClickedListener {
