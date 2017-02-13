@@ -184,7 +184,7 @@ public class ThreadDetailsFragment extends Fragment {
      *
      * Hint: When defining the AsyncTask, it has 3 type parameters - AsyncTask<1,2,3>
      * 1. Type for the doInBackground var args
-     * 2. Type for onProgressUpdate var args
+     * 2. Type for onProgressUpdate var args (not necessary for this so use Void)
      * 3. Type for onPostExecute which is also the return type from doInBackground
      */
 
