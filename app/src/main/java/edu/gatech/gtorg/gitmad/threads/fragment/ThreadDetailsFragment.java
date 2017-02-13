@@ -98,15 +98,7 @@ public class ThreadDetailsFragment extends Fragment {
                  * 4. Force the app chooser to appear every time (Android Intent docs will help with this)
                  * 5. Start the activity!
                  */
-                Intent sendIntent = new Intent(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT,sendMessage );
-                sendIntent.setType("text/plain");
-                Intent chooser = Intent.createChooser(sendIntent, "Send Thread Details");
 
-
-                if (sendIntent.resolveActivity(getActivity().getPackageManager()) != null) {
-                    startActivityForResult(chooser, SEND_REQUEST_CODE);
-                }
             }
         });
 
@@ -118,7 +110,7 @@ public class ThreadDetailsFragment extends Fragment {
                  * at the top of the file. If everything goes right, you'll have a familiar looking
                  * logo in your image view.
                  */
-                new ImageTask().execute(URL);
+
             }
         });
 
@@ -195,24 +187,7 @@ public class ThreadDetailsFragment extends Fragment {
      * 2. Type for onProgressUpdate var args
      * 3. Type for onPostExecute which is also the return type from doInBackground
      */
-    private class ImageTask extends AsyncTask<String, Void, Drawable> {
 
-        @Override
-        protected Drawable doInBackground(String... param) {
-            try {
-                return getImage(param[0]);
-            } catch (IOException ioe) {
-                Log.e("ioe", ioe.getMessage());
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Drawable image) {
-            updateImageView(image);
-        }
-
-    }
 
     private void updateImageView(Drawable image) {
         imageView.setImageDrawable(image);

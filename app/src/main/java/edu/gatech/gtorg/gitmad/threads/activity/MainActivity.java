@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements ThreadsListFragme
 
         if (isScreenLandscape()) {
 
-            threadDetailsFragment = (ThreadDetailsFragment) getSupportFragmentManager().findFragmentById(R.id.threadDetailsFragment);
+            threadDetailsFragment = null;
         }
 
         loadThreadDetailsStrings();
@@ -81,13 +81,13 @@ public class MainActivity extends AppCompatActivity implements ThreadsListFragme
          * Don't forget to use show() to actually display the toast.
          */
 
-        Toast.makeText(this, threadName + " was clicked", Toast.LENGTH_SHORT).show();
+
 
 
         /* TODO 7
          * Log the thread name to the Android Monitor. Hint: Log.i() might be helpful
          */
-        Log.i("threadName", threadName);
+
 
         if (isScreenLandscape()) {
 
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements ThreadsListFragme
         /* TODO 1
          * Create an Intent that will take you from this activity to ThreadDetailsActivity.
          */
-        Intent intent = new Intent(MainActivity.this, ThreadDetailsActivity.class);
+
 
         /* TODO 2
          * When you go to ThreadDetailsActivity, you'll want to take the thread name and description
@@ -111,19 +111,18 @@ public class MainActivity extends AppCompatActivity implements ThreadsListFragme
          *
          * ThreadDetailsActivity has public keys you may use to pass your data or you can use your own string
          */
-        intent.putExtra(ThreadDetailsActivity.KEY_THREAD_NAME, threadName);
-        intent.putExtra(ThreadDetailsActivity.KEY_THREAD_DESCRIPTION, threadDescription);
+
 
         /* TODO 3
          * All that is left to do now is to start the activity based on your newly created intent
          */
-        startActivity(intent);
+
     }
 
     private boolean isScreenLandscape() {
         /* TODO 8
          * Return true if the phone is in landscape mode
          */
-        return getResources().getConfiguration().orientation == ORIENTATION_LANDSCAPE;
+        return false;
     }
 }

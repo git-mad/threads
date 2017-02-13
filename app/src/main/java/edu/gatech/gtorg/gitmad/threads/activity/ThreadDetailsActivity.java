@@ -40,8 +40,8 @@ public class ThreadDetailsActivity extends AppCompatActivity {
          */
 
 
-        String threadName = getIntent().getExtras().getString(KEY_THREAD_NAME);
-        String threadDescription = getIntent().getExtras().getString(KEY_THREAD_DESCRIPTION);
+        String threadName = "";
+        String threadDescription = "";
 
         ThreadDetailsFragment detailsFragment = (ThreadDetailsFragment) getSupportFragmentManager().findFragmentById(R.id.threadDetailsFragment);
 

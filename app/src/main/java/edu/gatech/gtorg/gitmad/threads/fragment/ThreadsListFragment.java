@@ -86,12 +86,7 @@ public class ThreadsListFragment extends Fragment {
          * We need a threadName and threadIndex. If only there were a String[] in this file with all the threads and
          * a variable that corresponded to the position in the array...
          */
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                clickListener.threadClicked(threadNames[position], position);
-            }
-        });
+
 
     }
 
