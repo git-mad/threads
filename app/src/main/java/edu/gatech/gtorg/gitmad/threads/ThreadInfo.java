@@ -36,10 +36,20 @@ public class ThreadInfo {
     }
 
     public static void loadThreadInformation(@NonNull Context context, @Nullable OnThreadLoadListener threadLoadListener) {
+        // TODO 1. Update the UI to handle asynchrous operations
+        // Uncomment the code below to change the synchronous code to asynchronous.
+        // Run the app and then investigate + fix the crash.
+
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
         orderedThreadNames = context.getResources().getStringArray(R.array.thread_names);
         threadDetails = context.getResources().getStringArray(R.array.thread_descriptions);
         if (threadLoadListener != null) {
             threadLoadListener.onThreadInfoLoaded();
         }
+//            }
+//        }, 5000); // 5 second delay (delay in milliseconds)
+
     }
 }
