@@ -1,6 +1,7 @@
 package edu.gatech.gtorg.gitmad.threads;
 
 import android.content.Context;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
@@ -35,11 +36,21 @@ public class ThreadInfo {
         void onThreadInfoLoaded();
     }
 
-    public static void loadThreadInformation(@NonNull Context context, @Nullable OnThreadLoadListener threadLoadListener) {
-        orderedThreadNames = context.getResources().getStringArray(R.array.thread_names);
-        threadDetails = context.getResources().getStringArray(R.array.thread_descriptions);
-        if (threadLoadListener != null) {
-            threadLoadListener.onThreadInfoLoaded();
+    public static void loadThreadInformation(@NonNull final Context context, @Nullable final OnThreadLoadListener threadLoadListener) {
+        boolean requiresLoad = (orderedThreadNames == null || threadDetails == null);
+        if (!requiresLoad) {
+            return;
         }
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                orderedThreadNames = context.getResources().getStringArray(R.array.thread_names);
+                threadDetails = context.getResources().getStringArray(R.array.thread_descriptions);
+
+                if (threadLoadListener != null) {
+                    threadLoadListener.onThreadInfoLoaded();
+                }
+            }
+        }, 5000); // 5 second delay (delay in milliseconds)
     }
 }

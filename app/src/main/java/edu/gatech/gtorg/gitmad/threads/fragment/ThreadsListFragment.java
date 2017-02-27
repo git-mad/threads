@@ -52,7 +52,17 @@ public class ThreadsListFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        threadNames = ThreadInfo.getThreadNames();
+        ThreadInfo.loadThreadInformation(getActivity(), new ThreadInfo.OnThreadLoadListener() {
+            @Override
+            public void onThreadInfoLoaded() {
+                threadNames = ThreadInfo.getThreadNames();
+
+                View rootView = getView();
+                assert rootView != null;
+                ListView listView = (ListView) rootView.findViewById(R.id.threadsListView);
+                addListAdapter(listView);
+            }
+        });
     }
 
     @Nullable
@@ -61,8 +71,6 @@ public class ThreadsListFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_threads_list, container, false);
 
         ListView listView = (ListView) rootView.findViewById(R.id.threadsListView);
-
-        addListAdapter(listView);
 
         addListClickListener(listView);
 
