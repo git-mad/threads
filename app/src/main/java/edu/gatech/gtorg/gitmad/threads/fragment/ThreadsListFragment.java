@@ -13,7 +13,7 @@ import android.widget.ListView;
 
 import edu.gatech.gtorg.gitmad.threads.R;
 
-public class ThreadsListFragment extends Fragment {
+public class ThreadsListFragment extends Fragment implements AdapterView.OnItemClickListener {
 
     private static final String KEY_THREAD_NAMES = "thread names key";
 
@@ -55,12 +55,17 @@ public class ThreadsListFragment extends Fragment {
 
         ListView listView = (ListView) rootView.findViewById(R.id.threadsListView);
 
-        // Create an array adapter that allows threadNames[] to be displayed in our listView
-        // Set our Adapter to be used by our ListView
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, threadNames);
+        listView.setAdapter(adapter);
 
-        // set the OnItemClickedListener to call clickListener.threadClicked();
+        listView.setOnItemClickListener(this);
 
         return rootView;
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        clickListener.threadClicked(threadNames[position], position);
     }
 
     public interface OnThreadClickedListener {
