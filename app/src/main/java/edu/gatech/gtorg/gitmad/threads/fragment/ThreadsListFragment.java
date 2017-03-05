@@ -21,10 +21,6 @@ public class ThreadsListFragment extends Fragment {
     private OnThreadClickedListener clickListener;
     private String[] threadNames;
 
-
-
-
-
     /*
         public default constructor necessary for the Android OS to manage
         the application's state. See
@@ -59,25 +55,12 @@ public class ThreadsListFragment extends Fragment {
 
         ListView listView = (ListView) rootView.findViewById(R.id.threadsListView);
 
-        addListAdapter(listView);
+        // Create an array adapter that allows threadNames[] to be displayed in our listView
+        // Set our Adapter to be used by our ListView
 
-        addListClickListener(listView);
+        // set the OnItemClickedListener to call clickListener.threadClicked();
 
         return rootView;
-    }
-
-    private void addListAdapter(ListView listView) {
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, threadNames);
-        listView.setAdapter(adapter);
-    }
-
-    private void addListClickListener(ListView listView) {
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                clickListener.threadClicked(threadNames[position], position);
-            }
-        });
     }
 
     public interface OnThreadClickedListener {
