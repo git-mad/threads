@@ -62,15 +62,14 @@ public class MainActivity extends AppCompatActivity implements ThreadsListFragme
             threadDetailsFragment.setThread(threadName, threadDetailsStrings[threadIndex]);
 
         } else {
-            startThreadDetailsActivity(threadName, threadDetailsStrings[threadIndex]);
+            startThreadDetailsActivity(threadIndex);
         }
     }
 
-    private void startThreadDetailsActivity(String threadName, String threadDescription) {
+    private void startThreadDetailsActivity(int threadIndex) {
         Intent threadDetailsActivityIntent = new Intent(this, ThreadDetailsActivity.class);
 
-        threadDetailsActivityIntent.putExtra(ThreadDetailsActivity.KEY_THREAD_NAME, threadName);
-        threadDetailsActivityIntent.putExtra(ThreadDetailsActivity.KEY_THREAD_DESCRIPTION, threadDescription);
+        threadDetailsActivityIntent.putExtra(ThreadDetailsActivity.KEY_THREAD_INDEX, threadIndex);
 
         startActivity(threadDetailsActivityIntent);
     }
