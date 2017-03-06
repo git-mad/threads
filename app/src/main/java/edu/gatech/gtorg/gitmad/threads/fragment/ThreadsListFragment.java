@@ -1,9 +1,12 @@
 package edu.gatech.gtorg.gitmad.threads.fragment;
 
 import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +15,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import edu.gatech.gtorg.gitmad.threads.R;
+import edu.gatech.gtorg.gitmad.threads.ThumbnailThreadAdapter;
+import edu.gatech.gtorg.gitmad.threads.Utils;
 
-public class ThreadsListFragment extends Fragment implements AdapterView.OnItemClickListener {
+public class ThreadsListFragment extends Fragment {
 
     private static final String KEY_THREAD_NAMES = "thread names key";
 
@@ -53,22 +58,34 @@ public class ThreadsListFragment extends Fragment implements AdapterView.OnItemC
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_threads_list, container, false);
 
-        ListView listView = (ListView) rootView.findViewById(R.id.threadsListView);
+        RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.threadsRecyclerView);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, threadNames);
-        listView.setAdapter(adapter);
+        Bitmap[] threadThumbnails = getThreadImages();
+        RecyclerView.Adapter adapter = new ThumbnailThreadAdapter(threadNames, threadThumbnails, clickListener);
 
-        listView.setOnItemClickListener(this);
+        recyclerView.setAdapter(adapter);
 
         return rootView;
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        clickListener.threadClicked(threadNames[position], position);
+    private Bitmap[] getThreadImages() {
+        TypedArray threadImageIds = getResources().obtainTypedArray(R.array.thread_image_ids);
+
+        Bitmap[] threadImages = new Bitmap[threadImageIds.length()];
+
+        int threadThumbnailDimensions = (int) getResources().getDimension(R.dimen.thread_thumbnail_dims);
+
+        for (int i = 0; i < threadImageIds.length(); i++) {
+            int resourceId = threadImageIds.getResourceId(i, Utils.NULL_RESOURCE);
+            threadImages[i] = Utils.sampleBitmapForDimensions(getResources(), resourceId, threadThumbnailDimensions, threadThumbnailDimensions);
+        }
+
+        threadImageIds.recycle();
+
+        return threadImages;
     }
 
     public interface OnThreadClickedListener {
-        public void threadClicked(String threadName, int threadIndex);
+        void threadClicked(String threadName, int threadIndex);
     }
 }
