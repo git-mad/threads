@@ -30,18 +30,13 @@ public class ThumbnailThreadAdapter extends RecyclerView.Adapter<ThumbnailThread
 
     @Override
     public ThreadViewHolder onCreateViewHolder(ViewGroup parentView, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(parentView.getContext());
-        View listItemView = inflater.inflate(R.layout.thread_list_item, parentView, false);
-
-        ThreadViewHolder viewHolder = new ThreadViewHolder(listItemView);
-
-        return viewHolder;
+        // Inflate list item, create ThreadViewHolder
     }
 
     @Override
     public void onBindViewHolder(ThreadViewHolder threadViewHolder, int i) {
-        threadViewHolder.threadNameTextView.setText(threadNames[i]);
-        threadViewHolder.threadImageView.setImageBitmap(thumbnails[i]);
+        // set text of list item TextView,
+        // set image of list item ImageView
     }
 
     @Override
@@ -50,14 +45,16 @@ public class ThumbnailThreadAdapter extends RecyclerView.Adapter<ThumbnailThread
     }
 
     class ThreadViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        ImageView threadImageView;
-        TextView threadNameTextView;
+
+        //
 
         ThreadViewHolder(View itemView) {
             super(itemView);
-            threadImageView = (ImageView) itemView.findViewById(R.id.threadImageView);
-            threadNameTextView = (TextView) itemView.findViewById(R.id.threadNameTextView);
 
+            // find and store the views we need
+
+
+            // This captures click events on the list items.
             itemView.setOnClickListener(this);
         }
 

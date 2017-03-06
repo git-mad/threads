@@ -58,12 +58,7 @@ public class ThreadsListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_threads_list, container, false);
 
-        RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.threadsRecyclerView);
-
-        Bitmap[] threadThumbnails = getThreadImages();
-        RecyclerView.Adapter adapter = new ThumbnailThreadAdapter(threadNames, threadThumbnails, clickListener);
-
-        recyclerView.setAdapter(adapter);
+        // get RecyclerView, create Adapter, set Adapter --> RecyclerView
 
         return rootView;
     }
