@@ -56,8 +56,12 @@ public class MainActivity extends AppCompatActivity implements ThreadsListFragme
 
     @Override
     public void threadClicked(String threadName, int threadIndex) {
-        // TODO launch a new activity to display thread details if the screen is portrait
-        // otherwise display the details in the ThreadDetailsFragment that is currently on-screen
+        if (isScreenLandscape()) {
+            threadDetailsFragment.setThread(threadName, threadDetailsStrings[threadIndex]);
+
+        } else {
+            startThreadDetailsActivity(threadName, threadDetailsStrings[threadIndex]);
+        }
     }
 
     private void startThreadDetailsActivity(String threadName, String threadDescription) {
