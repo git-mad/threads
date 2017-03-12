@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,7 +34,13 @@ public class ThreadsListFragment extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
 
-        //TODO check if the activity implements the correct interface, and keep a reference to it
+        if (context instanceof OnThreadClickedListener) {
+            clickListener = (OnThreadClickedListener) context;
+
+        } else {
+            throw new ClassCastException(context.toString() +
+                    " must implement OnThreadClickedListener");
+        }
     }
 
     @Override
@@ -46,11 +53,8 @@ public class ThreadsListFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = null;
-        ListView listView = null;
-
-        //TODO replace the above with code that inflates the layout R.layout.fragment_threads_list
-        // and gets a reference to the ListView R.id.threadsListView
+        View rootView = inflater.inflate(R.layout.fragment_threads_list, container, false);
+        ListView listView = (ListView) rootView.findViewById(R.id.threadsListView);
 
         setUpList(listView);
 
@@ -65,7 +69,7 @@ public class ThreadsListFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //TODO notify the activity through a call to our clickListener
+                clickListener.threadClicked(threadNames[position], position);
             }
         });
     }

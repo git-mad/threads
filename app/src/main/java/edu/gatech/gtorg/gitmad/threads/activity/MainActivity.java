@@ -17,7 +17,7 @@ import edu.gatech.gtorg.gitmad.threads.fragment.ThreadsListFragment;
 import static android.content.res.Configuration.ORIENTATION_LANDSCAPE;
 import static android.content.res.Configuration.ORIENTATION_PORTRAIT;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ThreadsListFragment.OnThreadClickedListener {
 
     private static final String TAG_THREADS_LIST_FRAGMENT = "threads list fragment in main activity tag";
 
@@ -54,9 +54,10 @@ public class MainActivity extends AppCompatActivity {
         threadDetailsStrings = getResources().getStringArray(R.array.thread_descriptions);
     }
 
-    //TODO implement OnThreadClicked interface method
-
-
+    @Override
+    public void threadClicked(String threadName, int threadIndex) {
+        startThreadDetailsActivity(threadName, threadDetailsStrings[threadIndex]);
+    }
 
     private void startThreadDetailsActivity(String threadName, String threadDescription) {
         Intent threadDetailsActivityIntent = new Intent(this, ThreadDetailsActivity.class);
