@@ -17,7 +17,7 @@ import edu.gatech.gtorg.gitmad.threads.fragment.ThreadsListFragment;
 import static android.content.res.Configuration.ORIENTATION_LANDSCAPE;
 import static android.content.res.Configuration.ORIENTATION_PORTRAIT;
 
-public class MainActivity extends AppCompatActivity implements ThreadsListFragment.OnThreadClickedListener {
+public class MainActivity extends AppCompatActivity {
 
     private static final String TAG_THREADS_LIST_FRAGMENT = "threads list fragment in main activity tag";
 
@@ -54,17 +54,9 @@ public class MainActivity extends AppCompatActivity implements ThreadsListFragme
         threadDetailsStrings = getResources().getStringArray(R.array.thread_descriptions);
     }
 
-    @Override
-    public void threadClicked(String threadName, int threadIndex) {
-        Toast.makeText(this, threadName + " was clicked", Toast.LENGTH_SHORT).show();
+    //TODO implement OnThreadClicked interface method
 
-        if (isScreenLandscape()) {
-            threadDetailsFragment.setThread(threadName, threadDetailsStrings[threadIndex]);
 
-        } else {
-            startThreadDetailsActivity(threadName, threadDetailsStrings[threadIndex]);
-        }
-    }
 
     private void startThreadDetailsActivity(String threadName, String threadDescription) {
         Intent threadDetailsActivityIntent = new Intent(this, ThreadDetailsActivity.class);

@@ -21,10 +21,6 @@ public class ThreadsListFragment extends Fragment {
     private OnThreadClickedListener clickListener;
     private String[] threadNames;
 
-
-
-
-
     /*
         public default constructor necessary for the Android OS to manage
         the application's state. See
@@ -37,12 +33,7 @@ public class ThreadsListFragment extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
 
-        if (getActivity() instanceof OnThreadClickedListener) {
-            clickListener = (OnThreadClickedListener) getActivity();
-
-        } else {
-            throw new ClassCastException("Activity that contains Fragment ThreadsListFragment must implement OnThreadClickedListener in order to receive click events");
-        }
+        //TODO check if the activity implements the correct interface, and keep a reference to it
     }
 
     @Override
@@ -55,27 +46,26 @@ public class ThreadsListFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_threads_list, container, false);
+        View rootView = null;
+        ListView listView = null;
 
-        ListView listView = (ListView) rootView.findViewById(R.id.threadsListView);
+        //TODO replace the above with code that inflates the layout R.layout.fragment_threads_list
+        // and gets a reference to the ListView R.id.threadsListView
 
-        addListAdapter(listView);
-
-        addListClickListener(listView);
+        setUpList(listView);
 
         return rootView;
     }
 
-    private void addListAdapter(ListView listView) {
+    private void setUpList(ListView listView) {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, threadNames);
         listView.setAdapter(adapter);
-    }
 
-    private void addListClickListener(ListView listView) {
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                clickListener.threadClicked(threadNames[position], position);
+                //TODO notify the activity through a call to our clickListener
             }
         });
     }
