@@ -84,20 +84,24 @@ public class ThreadDetailsFragment extends Fragment {
         downloadButton = (Button) rootView.findViewById(R.id.button_download);
         imageView = (ImageView) rootView.findViewById(R.id.download_view);
 
+        /* TODO 10
+         *  Create a new View.OnClickListener() for sendButton by using an anonymous inner class
+         *  or a lambda expression. This anonymous inner class needs to override the onClick() method.
+
+         *  Inside the onClick method, write code to tell your friends about the threads
+         *  you're interested in! You don't know how the user wants to send their message,
+         *  so use an implicit intent for sending messages.
+
+         * 1. Create an intent with a specified action
+         * 2. Put sendMessage in the intent as extra data
+         * 3. Set the type of intent (hint: plain text would be good here)
+         * 4. Force the app chooser to appear every time (Android Intent docs will help with this)
+         * 5. Start the activity!
+         */
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String sendMessage = "About " + threadName + ": \n\n" + threadDetails;
-                /* TODO 10
-                 * Tell your friends about the threads you're interested in! You don't know how the
-                 * user wants to send their message, so use an implicit intent for sending messages.
-                 *
-                 * 1. Create an intent with a specified action
-                 * 2. Put sendMessage in the intent as extra data
-                 * 3. Set the type of intent (hint: plain text would be good here)
-                 * 4. Force the app chooser to appear every time (Android Intent docs will help with this)
-                 * 5. Start the activity!
-                 */
                 Intent sendIntent = new Intent(Intent.ACTION_SEND);
                 sendIntent.putExtra(Intent.EXTRA_TEXT,sendMessage );
                 sendIntent.setType("text/plain");
@@ -110,14 +114,17 @@ public class ThreadDetailsFragment extends Fragment {
             }
         });
 
+        /* TODO 12 (Advanced)
+         *  Create a new View.OnClickListener() for sendButton by using an anonymous inner class
+         *  or a lambda expression. This anonymous inner class needs to override the onClick() method.
+         *
+         *  Inside the onClick() method, create a new instance of your async task and execute it here
+         *  using the static URL at the top of the file. If everything goes right, you'll have a
+         *  familiar looking logo in your image view.
+         */
         downloadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /* TODO 12 (Advanced)
-                 * Create a new instance of your async task and execute it here using the static URL
-                 * at the top of the file. If everything goes right, you'll have a familiar looking
-                 * logo in your image view.
-                 */
                 new ImageTask().execute(URL);
             }
         });
