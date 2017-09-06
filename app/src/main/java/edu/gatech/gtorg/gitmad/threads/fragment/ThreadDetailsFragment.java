@@ -85,7 +85,7 @@ public class ThreadDetailsFragment extends Fragment {
         imageView = (ImageView) rootView.findViewById(R.id.download_view);
 
         /* TODO 10
-         *  Create a new View.OnClickListener() for sendButton by using an anonymous inner class
+         *  Create and set a new View.OnClickListener() for sendButton by using an anonymous inner class
          *  or a lambda expression. This anonymous inner class needs to override the onClick() method.
          *
          *  Inside the onClick method, write code to tell your friends about the threads
@@ -93,8 +93,8 @@ public class ThreadDetailsFragment extends Fragment {
          *  so use an implicit intent for sending messages.
          *
          * 1. Create a string sendMessage that creates an email message that includes the
-         *    threadName and threadDetails. I recommend the string:
-         *    String sendMessage = "About " + threadName + ": \n\n" + threadDetails;
+         *    threadName and threadDetails. This string has already been created for you below
+         *    in the variable "sendMessage".
          * 2. Create an intent with a specified action
          * 3. Put sendMessage in the intent as extra data
          * 4. Set the type of intent (hint: plain text would be good here)
@@ -118,7 +118,7 @@ public class ThreadDetailsFragment extends Fragment {
         });
 
         /* TODO 12 (Advanced)
-         *  Create a new View.OnClickListener() for sendButton by using an anonymous inner class
+         *  Create and set a new View.OnClickListener() for downloadButton by using an anonymous inner class
          *  or a lambda expression. This anonymous inner class needs to override the onClick() method.
          *
          *  Inside the onClick() method, create a new instance of your async task and execute it here
