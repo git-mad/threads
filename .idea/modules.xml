@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Threads.iml" filepath="$PROJECT_DIR$/Threads.iml" />
+      <module fileurl="file://C:\Users\Clayton\Projects\GITMAD\threads\Threads.iml" filepath="C:\Users\Clayton\Projects\GITMAD\threads\Threads.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/gitmad-threads.iml" filepath="$PROJECT_DIR$/gitmad-threads.iml" />
+      <module fileurl="file://C:\Users\Clayton\Projects\GITMAD\threads\app\app.iml" filepath="C:\Users\Clayton\Projects\GITMAD\threads\app\app.iml" />
+      <module fileurl="file://C:\Users\Clayton\Projects\GITMAD\threads\gitmad-threads.iml" filepath="C:\Users\Clayton\Projects\GITMAD\threads\gitmad-threads.iml" />
+      <module fileurl="file://$PROJECT_DIR$/threads.iml" filepath="$PROJECT_DIR$/threads.iml" />
     </modules>
   </component>
 </project>
